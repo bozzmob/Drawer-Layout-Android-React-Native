@@ -14,18 +14,23 @@ var {
 
 var DrawerLayoutAndroidReactNative = React.createClass({
   render: function() {
+    var navigationView = (
+       <View style={{flex: 1, backgroundColor: '#fff'}}>
+        <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I am in the Drawer!</Text>
+       </View>
+      );
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <DrawerLayoutAndroid
+        drawerWidth={300}
+        drawerPosition={DrawerLayoutAndroid.positions.Left}
+        renderNavigationView={() => navigationView}>
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
+          <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+        </View>
+      </DrawerLayoutAndroid>
+
     );
   }
 });
